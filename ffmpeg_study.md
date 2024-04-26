@@ -17,5 +17,6 @@ https://github.com/feixiao/learn-ffmpeg
 https://cloud.tencent.com/developer/article/1842251
 https://blog.csdn.net/leixiaohua1020/article/details/44220151
 https://lazybing.github.io/blog/categories/ffmpegyuan-ma-fen-xi/
+https://blog.csdn.net/leixiaohua1020/article/details/15811977
 
 # 笔记

@@ -79,13 +79,11 @@ enum show_muxdemuxers {
     SHOW_MUXERS,
 };
 
-void init_opts(void)
-{
+void init_opts(void) {
     av_dict_set(&sws_dict, "flags", "bicubic", 0);
 }
 
-void uninit_opts(void)
-{
+void uninit_opts(void) {
     av_dict_free(&swr_opts);
     av_dict_free(&sws_dict);
     av_dict_free(&format_opts);
@@ -93,20 +91,19 @@ void uninit_opts(void)
     av_dict_free(&resample_opts);
 }
 
-void log_callback_help(void *ptr, int level, const char *fmt, va_list vl)
-{
+void log_callback_help(void *ptr, int level, const char *fmt, va_list vl) {
     vfprintf(stdout, fmt, vl);
 }
 
-static void log_callback_report(void *ptr, int level, const char *fmt, va_list vl)
-{
+static void log_callback_report(void *ptr, int level, const char *fmt, va_list vl) {
     va_list vl2;
     char line[1024];
     static int print_prefix = 1;
 
     va_copy(vl2, vl);
     av_log_default_callback(ptr, level, fmt, vl);
-    av_log_format_line(ptr, level, fmt, vl2, line, sizeof(line), &print_prefix);
+    av_log_format_line(ptr, level, fmt, vl2, line, sizeof(line),
+                       &print_prefix);
     va_end(vl2);
     if (report_file_level >= level) {
         fputs(line, report_file);
@@ -114,8 +111,7 @@ static void log_callback_report(void *ptr, int level, const char *fmt, va_list v
     }
 }
 
-void init_dynload(void)
-{
+void init_dynload(void) {
 #if HAVE_SETDLLDIRECTORY && defined(_WIN32)
     /* Calling SetDllDirectory with the empty string (but not NULL) removes the
      * current working directory from the DLL search path as a security pre-caution. */
@@ -125,8 +121,7 @@ void init_dynload(void)
 
 static void (*program_exit)(int ret);
 
-void register_exit(void (*cb)(int ret))
-{
+void register_exit(void (*cb)(int ret)) {
     program_exit = cb;
 }
 

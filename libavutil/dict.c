@@ -32,14 +32,12 @@ struct AVDictionary {
     AVDictionaryEntry *elems;
 };
 
-int av_dict_count(const AVDictionary *m)
-{
+int av_dict_count(const AVDictionary *m) {
     return m ? m->count : 0;
 }
 
 AVDictionaryEntry *av_dict_get(const AVDictionary *m, const char *key,
-                               const AVDictionaryEntry *prev, int flags)
-{
+                               const AVDictionaryEntry *prev, int flags) {
     unsigned int i, j;
 
     if (!m)
@@ -67,9 +65,7 @@ AVDictionaryEntry *av_dict_get(const AVDictionary *m, const char *key,
     return NULL;
 }
 
-int av_dict_set(AVDictionary **pm, const char *key, const char *value,
-                int flags)
-{
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags) {
     AVDictionary *m = *pm;
     AVDictionaryEntry *tag = NULL;
     char *oldval = NULL, *copy_key = NULL, *copy_value = NULL;
@@ -144,19 +140,18 @@ err_out:
     return AVERROR(ENOMEM);
 }
 
-int av_dict_set_int(AVDictionary **pm, const char *key, int64_t value,
-                int flags)
-{
+int av_dict_set_int(AVDictionary **pm, const char *key, int64_t value, int flags) {
     char valuestr[22];
     snprintf(valuestr, sizeof(valuestr), "%"PRId64, value);
     flags &= ~AV_DICT_DONT_STRDUP_VAL;
     return av_dict_set(pm, key, valuestr, flags);
 }
 
-static int parse_key_value_pair(AVDictionary **pm, const char **buf,
-                                const char *key_val_sep, const char *pairs_sep,
-                                int flags)
-{
+static int parse_key_value_pair(AVDictionary **pm,
+                                const char **buf,
+                                const char *key_val_sep,
+                                const char *pairs_sep,
+                                int flags) {
     char *key = av_get_token(buf, key_val_sep);
     char *val = NULL;
     int ret;
@@ -179,8 +174,8 @@ static int parse_key_value_pair(AVDictionary **pm, const char **buf,
 
 int av_dict_parse_string(AVDictionary **pm, const char *str,
                          const char *key_val_sep, const char *pairs_sep,
-                         int flags)
-{
+                         int flags) {
+
     int ret;
 
     if (!str)
@@ -200,8 +195,7 @@ int av_dict_parse_string(AVDictionary **pm, const char *str,
     return 0;
 }
 
-void av_dict_free(AVDictionary **pm)
-{
+void av_dict_free(AVDictionary **pm) {
     AVDictionary *m = *pm;
 
     if (m) {
