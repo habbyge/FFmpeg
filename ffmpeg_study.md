@@ -12,11 +12,23 @@
 
 # 源码学习资源
 https://www.zhihu.com/question/20108410
-https://ffmpeg.xianwaizhiyin.net/
+
+电子书：https://ffmpeg.xianwaizhiyin.net/
+
+github源码学习：
 https://github.com/feixiao/learn-ffmpeg
 https://cloud.tencent.com/developer/article/1842251
-https://blog.csdn.net/leixiaohua1020/article/details/44220151
 https://lazybing.github.io/blog/categories/ffmpegyuan-ma-fen-xi/
+https://blog.csdn.net/leixiaohua1020/article/details/44220151
+
+ffmpeg.c源码分析：https://www.cnblogs.com/juju-go/p/16461343.html
+
+ffplay.c源码分析：
+https://www.cnblogs.com/juju-go/p/16489044.html
+https://www.cnblogs.com/juju-go/p/16500356.html
+https://www.cnblogs.com/juju-go/p/16516776.html
+
+音视频基础学习：
 https://blog.csdn.net/leixiaohua1020/article/details/15811977
 https://juejin.cn/post/6871450709376630792
 
