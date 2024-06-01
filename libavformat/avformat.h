@@ -1225,6 +1225,9 @@ typedef struct AVFormatInternal AVFormatInternal;
  * can be found in libavformat/options_table.h.
  * The AVOption/command line parameter names differ in some cases from the C
  * structure field names for historic reasons or brevity.
+ *
+ * 该结构体描述了一个媒体文件或媒体流的构成和基本信息。是一个贯穿始终的数据结构，很多函数调用需要
+ * 使用到它，也是FFMPEG解封装(flv/avi/mp4)功能的结构体。
  */
 typedef struct AVFormatContext {
     /**
@@ -1235,6 +1238,7 @@ typedef struct AVFormatContext {
 
     /**
      * The input container format.
+     * 输入数据的封装格式，仅解封装用，由 avformat_open_input()设置。
      *
      * Demuxing only, set by avformat_open_input().
      */
