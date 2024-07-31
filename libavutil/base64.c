@@ -30,8 +30,7 @@
 #include "timer.h"
 
 /* ---------------- private code */
-static const uint8_t map2[256] =
-{
+static const uint8_t map2[256] = {
     0xfe, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
     0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
@@ -76,8 +75,7 @@ static const uint8_t map2[256] =
     v = i ? (v << 6) + bits : bits; \
 } while(0)
 
-int av_base64_decode(uint8_t *out, const char *in_str, int out_size)
-{
+int av_base64_decode(uint8_t *out, const char *in_str, int out_size) {
     uint8_t *dst = out;
     uint8_t *end = out + out_size;
     // no sign extension
@@ -135,8 +133,7 @@ out0:
 * Fixed edge cases and made it work from data (vs. strings) by Ryan.
 *****************************************************************************/
 
-char *av_base64_encode(char *out, int out_size, const uint8_t *in, int in_size)
-{
+char *av_base64_encode(char *out, int out_size, const uint8_t *in, int in_size) {
     static const char b64[] =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     char *ret, *dst;

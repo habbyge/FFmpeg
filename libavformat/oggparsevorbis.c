@@ -86,8 +86,7 @@ int ff_vorbis_stream_comment(AVFormatContext *as, AVStream *st,
 
 int ff_vorbis_comment(AVFormatContext *as, AVDictionary **m,
                       const uint8_t *buf, int size,
-                      int parse_picture)
-{
+                      int parse_picture) {
     const uint8_t *p   = buf;
     const uint8_t *end = buf + size;
     int updates        = 0;
